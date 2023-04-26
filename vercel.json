@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "src/app.js"
+    }
+  ],
+  "env": {
+    "PORT": "@port",
+    "MONGO_LINK": "@mongo_link",
+    "JWT_ACCESS_SECRET": "@jwt_access_secret",
+    "JWT_REFRESH_SECRET": "@jwt_refresh_secret"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}
